@@ -1,0 +1,12 @@
+Filesystem                    Size  Used Avail Use% Mounted on
+devtmpfs                      871M     0  871M   0% /dev
+tmpfs                         890M     0  890M   0% /dev/shm
+tmpfs                         890M   17M  873M   2% /run
+tmpfs                         890M     0  890M   0% /sys/fs/cgroup
+/dev/mapper/ol_oracle8-root   125G  3.7G  122G   3% /
+/dev/sda1                    1014M  212M  803M  21% /boot
+tmpfs                         178M     0  178M   0% /run/user/1000
+/dev/mapper/moje_vg-moje_lv   482M   14K  453M   1% /moje
+/dev/mapper/bonus_vg-ext4_lv  119M   14K  110M   1% /moje_ext4
+/dev/mapper/bonus_vg-xfs_lv   371M  9.8M  361M   3% /moje_xfs
+/dev/mapper/data_vg-data_lv   199M   15M  184M   8% /data

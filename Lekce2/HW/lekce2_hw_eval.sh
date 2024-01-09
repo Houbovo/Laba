@@ -5,8 +5,8 @@ spatne="!  Neco je spatne"
 echo "- Kontroluji muj_dir"
 if [ -d muj_dir ]
 then
-  echo "  Adresar muj_dir +50"
-  let score=$score+50
+  echo "  Adresar muj_dir +5"
+  let score=$score+5
 else
   echo $spatne
 fi
@@ -14,8 +14,8 @@ fi
 echo "- Kontroluji MUJ.file"
 if [ -e muj_dir/MUJ.file ]
 then
-  echo "  Soubor MUJ.file +50"
-  let score=$score+50
+  echo "  Soubor MUJ.file +5"
+  let score=$score+5
 else
   echo $spatne
 fi
@@ -37,8 +37,8 @@ do
 done
 if [ $? -eq 0 ]
 then
-  echo "  Soubory zkopirovane +100"
-  let score=$score+100
+  echo "  Soubory zkopirovane +10"
+  let score=$score+10
 else
   echo $spatne
 fi
@@ -46,8 +46,8 @@ fi
 echo "- Kontroluji muj-mkimage"
 if [ -e muj_dir/muj-mkimage ]
 then
-  echo "  Soubor muj-mkimage +50"
-  let score=$score+50
+  echo "  Soubor muj-mkimage +5"
+  let score=$score+5
 else
   echo $spatne
 fi
@@ -55,8 +55,8 @@ fi
 echo "- Kontroluji symling grub2-mkimage"
 if [ -L muj_dir/grub2-mkimage ]
 then
-  echo "  Link grub2-mkimage +50"
-  let score=$score+50
+  echo "  Link grub2-mkimage +5"
+  let score=$score+5
 else
   echo $spatne
 fi
@@ -64,8 +64,8 @@ fi
 echo "- Kontroluji nejvetsi soubor"
 if [ ! -e muj_dir/$nejvetsi ]
 then
-  echo "  Nejvetsi neni +100"
-  let score=$score+100
+  echo "  Nejvetsi neni +10"
+  let score=$score+10
 else
   echo $spatne
 fi
@@ -73,8 +73,8 @@ fi
 echo "- Kontroluji muj_dir.tar.gz"
 if [ -e muj_dir.tar.gz ]
 then
-  echo "  Balik existuje +100"
-  let score=$score+100
+  echo "  Balik existuje +10"
+  let score=$score+10
 else
   echo $spatne
 fi
@@ -83,8 +83,8 @@ echo "- Kontroluji PV"
 sudo pvs | grep sdb > /dev/null
 if [ $? -eq 0 ]
 then
-  echo "  PV vytvoreny +100"
-  let score=$score+100
+  echo "  PV vytvoreny +10"
+  let score=$score+10
 else
   echo $spatne
 fi
@@ -93,8 +93,8 @@ echo "- Kontroluji VG"
 sudo vgs | grep moje_vg > /dev/null
 if [ $? -eq 0 ]
 then
-  echo "  VG vytvorena +100"
-  let score=$score+100
+  echo "  VG vytvorena +10"
+  let score=$score+10
 else
   echo $spatne
 fi
@@ -103,8 +103,8 @@ echo "- Kontroluji LV"
 sudo lvs | grep moje_lv > /dev/null
 if [ $? -eq 0 ]
 then
-  echo "  LV vytvoreny +100"
-  let score=$score+100
+  echo "  LV vytvoreny +10"
+  let score=$score+10
 else
   echo $spatne
 fi
@@ -113,8 +113,8 @@ echo "- Kontroluji FS"
 sudo blkid | grep moje_lv | grep ext4 > /dev/null
 if [ $? -eq 0 ]
 then
-  echo "  FS vytvoreny +100"
-  let score=$score+100
+  echo "  FS vytvoreny +10"
+  let score=$score+10
 else
   echo $spatne
 fi
@@ -123,8 +123,8 @@ echo "- Kontroluji mount FS"
 mount | grep moje_lv | grep "on /moje" > /dev/null
 if [ $? -eq 0 ]
 then
-  echo "  FS namountovany +100"
-  let score=$score+100
+  echo "  FS namountovany +10"
+  let score=$score+10
 else
   echo $spatne
 fi
@@ -141,7 +141,7 @@ df -h /moje_xfs | egrep 3[0-9]{2}M > /dev/null
 if [ $? -eq 0 ] && [ -e .bonus ]
 then
   echo "  Bonusova cast hotova!"
-  let score=$score+1
+  let score=$score+10
 fi
 
 echo "--------------------------

@@ -130,7 +130,7 @@ else
 fi
 
 echo "--- Bonusova cast ---"
-df -h /moje_xfs | egrep 1[0-9]{2}M > /dev/null
+df -h /moje_xfs 2> /dev/null | egrep 1[0-9]{2}M > /dev/null
 if [ $? -eq 0 ]
 then
   touch .bonus

@@ -113,7 +113,8 @@ else
 fi
 
 echo "--- Bonusova cast ---"
-if [ ! -e do_not_delete.me ]
+grep bob /etc/passwd > /dev/null 2>&1
+if [ $? -eq 0 ] && [  -e .bonus ]
 then
   echo "  Spravne +10"
   let score=$score+10

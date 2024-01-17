@@ -16,7 +16,7 @@ else
 fi
 
 echo "- Kontroluji tecky"
-tecky=`cat soubor1.txt | tail -n 1 | grep "....." | wc -l`
+tecky=`cat soubor1.txt | tail -n 1 | grep -F "....." | wc -l`
 if [ $tecky -eq 1 ]
 then
   echo "  Spravne +10"

@@ -63,8 +63,8 @@ else
   echo $spatne
 fi
 
-echo "Kontroluji nastaveni prav /home/alena"
-perms=`stat -c "%a" /home/alena/ | cut -c 2`
+echo "Kontroluji nastaveni prav /home/vagrant"
+perms=`stat -c "%a" /home/vagrant/ | cut -c 2`
 if [ $perms -eq 5 ]
 then
   echo "  Spravne +10"

@@ -67,7 +67,7 @@ fi
 echo "- Kontroluji /bin/bash"
 binbash=`grep bash passwd.new | wc -l`
 binksh=`grep ksh passwd.new | wc -l`
-oldbinksh=`grep ksh passwd.txt | wc -l`
+oldbinksh=`grep ksh passwd | wc -l`
 if [ $binbash -eq 30 ] && [ $binksh -eq 1 ] && [ $oldbinksh -eq 4 ]
 then
   echo "  Spravne +20"

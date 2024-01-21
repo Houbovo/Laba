@@ -1,7 +1,6 @@
 #!/bin/bash
 
-touch do_not_delete.me
-sudo chattr +i do_not_delete.me
+sudo dnf install expect
 
 mkdir /var/tmp/spousta_souboru
 cd /var/tmp/spousta_souboru

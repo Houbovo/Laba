@@ -81,7 +81,7 @@ fi
 
 echo "--- Bonusova cast ---"
 mplayer=`rpm -qa | egrep "mplayer|libcaca" | wc -l`
-if [ $mplayer -eq 3 ]
+if [ $mplayer -ge 2 ]
 then
   echo "  Spravne +10"
   let score=$score+10

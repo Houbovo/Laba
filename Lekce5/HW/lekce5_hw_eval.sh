@@ -23,7 +23,7 @@ else
 fi
 
 echo "Kontroluji balicky Virtualbox"
-pkgs=`egrep "virtualbox|ol8_developer" virtualbox.txt  | tr -s " " | cut -d " " -f 3 | sort -u | tr "\n" " "`
+pkgs=`egrep "virtualbox|ol8_developer" virtualbox.txt  | tr -s " " | cut -d " " -f 3 | sort -u | grep -v ^@ | tr "\n" " "`
 if [[ $pkgs = "ol8_developer virtualbox " ]]
 then
   echo "  Spravne +10"

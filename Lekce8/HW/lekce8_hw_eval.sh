@@ -39,6 +39,14 @@ else
         echo $spatne
 fi
 
+echo "--- Bonusova cast ---"
+BONUS=`grep TIMEOUT /etc/default/grub`
+if [ $BONUS = "GRUB_TIMEOUT=10" ]
+then
+  echo "  Spravne +10"
+  let score=$score+10
+fi
+
 echo "--------------------------
 Celkovy pocet bodu: $score
 --------------------------"

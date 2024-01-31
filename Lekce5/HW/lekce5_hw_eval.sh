@@ -3,7 +3,7 @@
 spatne="!  Neco je spatne"
 
 echo "Kontroluji repozitar developer"
-dnf repolist ol8_developer > /dev/null 2>&1
+dnf repolist | grep ol8_developer > /dev/null 2>&1
 if [ $? -eq 0 ]
 then
   echo "  Spravne +10"
@@ -13,7 +13,7 @@ else
 fi
 
 echo "Kontroluji repo virtualbox"
-dnf repolist virtualbox > /dev/null 2>&1
+dnf repolist | grep virtualbox > /dev/null 2>&1
 if [ $? -eq 0 ]
 then
   echo "  Spravne +10"
@@ -23,7 +23,7 @@ else
 fi
 
 echo "Kontroluji balicky Virtualbox"
-pkgs=`egrep "virtualbox|ol8_developer" virtualbox.txt  | tr -s " " | cut -d " " -f 3 | sort -u | tr "\n" " "`
+pkgs=`egrep "virtualbox|ol8_developer" virtualbox.txt  | tr -s " " | cut -d " " -f 3 | sort -u | grep -v ^@ | tr "\n" " "`
 if [[ $pkgs = "ol8_developer virtualbox " ]]
 then
   echo "  Spravne +10"
@@ -81,7 +81,7 @@ fi
 
 echo "--- Bonusova cast ---"
 mplayer=`rpm -qa | egrep "mplayer|libcaca" | wc -l`
-if [ $mplayer -eq 3 ]
+if [ $mplayer -ge 2 ]
 then
   echo "  Spravne +10"
   let score=$score+10

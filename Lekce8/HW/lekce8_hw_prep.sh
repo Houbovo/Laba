@@ -6,3 +6,5 @@ sudo systemctl mask chronyd.service > /dev/null 2>&1
 sudo sed -i "s/^pool/gibberish/g" /etc/chrony.conf
 
 sudo timedatectl set-time "2012-10-30 18:17:16" > /dev/null
+
+sudo hwclock -s > /dev/null

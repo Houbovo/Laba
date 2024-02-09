@@ -47,7 +47,7 @@ fi
 
 
 echo "--- Bonusova cast ---"
-curl comicsdb.cz 2> /dev/null | grep comicsdb &> /dev/null
+if [ -e .comicsdb ] && $(curl comicsdb.cz 2> /dev/null | grep comicsdb &> /dev/null); then
        echo "  Spravne +10"
        let score=$score+10
 fi

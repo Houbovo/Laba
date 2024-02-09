@@ -47,7 +47,7 @@ fi
 
 
 echo "--- Bonusova cast ---"
-if [[ $(cat .comicsdb 2> /dev/null) = $(host www.comicsdb.cz | awk -F ' ' '{print $4}') ]]; then
+curl comicsdb.cz 2> /dev/null | grep comicsdb &> /dev/null
        echo "  Spravne +10"
        let score=$score+10
 fi

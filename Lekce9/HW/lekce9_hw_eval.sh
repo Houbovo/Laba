@@ -20,7 +20,8 @@ else
 fi
 
 echo "Kontroluji name resolution roumingu"
-if grep "@8.8.4.4 www.rouming.cz" rouming.txt &> /dev/null; then
+NSL=$(cat rouming.txt | tr -d '\t' | tr -d ' ' | grep -E "Server:8.8.4.4|Address:77.78.107.185" | wc -l)
+if grep "@8.8.4.4 www.rouming.cz" rouming.txt &> /dev/null || [ $NSL -eq 2 ] ; then
         echo "  Spravne +10"
         let score=$score+10
 else

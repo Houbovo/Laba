@@ -33,7 +33,7 @@ sudo cat /etc/sudoers.d/10-webserver | tr -d ' ' | grep "Cmnd_AliasCOMMANDS=/usr
 COMMANDS=$?
 sudo cat /etc/sudoers.d/10-webserver | tr -d ' ' | grep ADMINSALL | grep COMMAND &> /dev/null
 RULE=$?
-if [ $USERS ] && [ $COMMANDS ] && [ $RULE ]; then
+if [ $USERS -eq 0 ] && [ $COMMANDS -eq 0 ] && [ $RULE -eq 0 ]; then
         echo "  Spravne +40"
         let score=$score+40
 else

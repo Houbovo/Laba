@@ -1,0 +1,67 @@
+muj host:
+---------
+eval `ssh-agent`
+ssh-add
+
+OCI:
+----
+create VCN - public and private
+create jumphost (public), quick action to allow internet connection
+create webserverX (private)
+
+jumphost:
+---------
+- create swap to enable dnf installation
+fallocate -l 3G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+swapon --show
+
+- install squid proxy
+dnf install -y squid
+- configure squid
+http_port 3128
+cache_dir ufs /var/spool/squid 100 16 256
+
+- enable on firewall
+firewall-cmd --add-port=3128 --permanent
+firewall-cmd --reload
+
+OCI:
+----
+add egress rule for 22 from jumphost
+add ingress rule for 22 on private
+add ingress rule for 80 on public
+add ingress rule for 80 on private from public network
+add ingress rule for 3128 on public from private network
+
+webserverX:
+-----------
+- configure dnf to use proxy
+vim /etc/dnf/dnf.conf
+proxy=http://10.0.0.76:3128
+
+- install and configure httpd
+dnf install httpd
+echo "vita vas webserverX" > /var/www/html/index.html
+
+firewall-cmd --add-service=http --permanent
+firewall-cmd --reload
+
+
+NLB:
+----
+Source header (IP, port) preservation: Disable
+
+
+
+na jumphost
+------------
+
+dnf install -y python36-oci-cli
+oci -i
+oci session authenticate --no-browser
+oci vault secret list --compartment-id ocid1.tenancy.oc1..aaaaaaaal3ri3t35cealxtxvgz4ozo5xwm7yxvtuvfdweuyb2bniqnxscduq
+oci secrets secret-bundle get --secret-id ocid1.vaultsecret.oc1.eu-frankfurt-1.amaaaaaaqcbk2uiaogincpnlzqwyykonjf7cra4wjoxx3aynm4dwzirdzmnq
+echo "dG9obGVfamVfcHJ2bmlfa2xpYw==" | base64 -d

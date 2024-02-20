@@ -25,7 +25,7 @@ else
 fi
 
 echo "Kontroluji zasifrovany soubor"
-scp -o PasswordAuthentication=no -p $PORT 10.0.11.12:/home/vagrant/tajny_dokument.txt.gpg . &> /dev/null
+scp -o PasswordAuthentication=no -P $PORT 10.0.11.12:/home/vagrant/tajny_dokument.txt.gpg . &> /dev/null
 if [[ $(gpg -d tajny_dokument.txt.gpg 2> /dev/null) = "Toto je tajna zprava" ]]; then
         echo "  Spravne +20"
         let score=$score+20

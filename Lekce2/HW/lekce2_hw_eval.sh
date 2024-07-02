@@ -52,7 +52,7 @@ else
   echo $spatne
 fi
 
-echo "- Kontroluji symling grub2-mkimage"
+echo "- Kontroluji symlink grub2-mkimage"
 if [ -L muj_dir/grub2-mkimage ]
 then
   echo "  Link grub2-mkimage +5"

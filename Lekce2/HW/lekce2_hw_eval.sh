@@ -33,7 +33,7 @@ done
 echo "- Kontroluji zkopirovane soubory"
 for file in $usrbin_bez
 do
-  ls /home/vagrant/muj_dir/$file > /dev/null
+  ls /home/vagrant/muj_dir/$file &> /dev/null
 done
 if [ $? -eq 0 ]
 then
@@ -137,7 +137,7 @@ then
   echo "Bonusovy mezikrok zaznamenan"
 fi
 
-df -h /moje_xfs | egrep 3[0-9]{2}M > /dev/null
+df -h /moje_xfs | egrep 3[0-9]{2}M &> /dev/null
 if [ $? -eq 0 ] && [ -e .bonus ]
 then
   echo "  Bonusova cast hotova!"

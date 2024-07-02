@@ -137,7 +137,7 @@ then
   echo "Bonusovy mezikrok zaznamenan"
 fi
 
-df -h /moje_xfs | egrep 3[0-9]{2}M &> /dev/null
+df -h /moje_xfs 2> /dev/null | egrep 3[0-9]{2}M > /dev/null
 if [ $? -eq 0 ] && [ -e .bonus ]
 then
   echo "  Bonusova cast hotova!"

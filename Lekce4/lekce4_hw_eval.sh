@@ -74,7 +74,7 @@ else
 fi
 
 echo "Kontoluji ACL na /home/vagrant/facl"
-getfacl /home/vagrantfacl 2> /dev/null | grep group:kancelar:rwx > /dev/null
+getfacl /home/vagrant/facl 2> /dev/null | grep group:kancelar:rwx > /dev/null
 if [ $? -eq 0 ]
 then
   echo "  Spravne +10"

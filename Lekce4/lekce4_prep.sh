@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo dnf install expect openldap-clients
+sudo dnf -y install expect openldap-clients
 
 mkdir /var/tmp/spousta_souboru
 cd /var/tmp/spousta_souboru

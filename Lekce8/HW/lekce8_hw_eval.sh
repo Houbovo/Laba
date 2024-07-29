@@ -32,7 +32,7 @@ else
 fi
 
 echo "Kontroluji FTP"
-if [ -s dummyfile.txt ]; then
+if [ -s dummy.txt ]; then
         echo "  Spravne +40"
         let score=$score+40
 else
